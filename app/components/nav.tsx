@@ -7,6 +7,7 @@ import ThemeToggle from "./theme-toggle";
 const links = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
+  { href: "/stats", label: "Stats" },
 ];
 
 export default function Nav() {
@@ -23,7 +24,7 @@ export default function Nav() {
           className="nav-link font-semibold text-sm tracking-tight"
           style={{ color: "var(--fg)" }}
         >
-          Michael Keller
+          Owen Zheng
         </Link>
 
         <div className="flex items-center gap-2">

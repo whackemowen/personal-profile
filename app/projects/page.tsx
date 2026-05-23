@@ -17,6 +17,16 @@ type Project = {
 
 const projects: Project[] = [
   {
+    name: "Lightning Bots — FTC Team 16205",
+    tagline: "2nd overall & 3rd in autonomous in all of Canada",
+    description:
+      "Four years competing in FIRST Tech Challenge with the Lightning Bots (Team 16205), winning BC provincials three years running. I program both autonomous and teleop, build the robot, and drive in competition. Autonomous runs PedroPathing with odometry for accurate PID path following and auto aiming for precise targeting. Ranked 2nd overall and 3rd in autonomous across all of Canada.",
+    tags: ["Java", "OpenCV", "TensorFlow Lite", "AprilTag", "PedroPathing", "PIDF", "FSM"],
+    links: [{ label: "GitHub", href: "https://github.com/whackemowen/lbteleop16205" }],
+    year: "2022",
+    status: "live",
+  },
+  {
     name: "Tele-Clash",
     tagline: "Play Clash Royale with your hands — no keyboard needed",
     description:

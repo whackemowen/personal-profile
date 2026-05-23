@@ -33,16 +33,17 @@ export default function CommandPalette() {
     { id: "home",       label: "Home",                    group: "Navigate", action: () => { router.push("/");         close(); } },
     { id: "about",      label: "About",                   group: "Navigate", action: () => { router.push("/about");    close(); } },
     { id: "projects",   label: "Projects",                group: "Navigate", action: () => { router.push("/projects"); close(); } },
-    { id: "github",     label: "Open GitHub",             hint: "github.com/whackemowen",        group: "Links",    action: () => { window.open("https://github.com/whackemowen", "_blank"); close(); } },
-    { id: "linkedin",   label: "Open LinkedIn",           hint: "linkedin.com/in/yourusername",  group: "Links",    action: () => { window.open("https://linkedin.com/in/yourusername", "_blank"); close(); } },
-    { id: "resume",     label: "Download Resume",         hint: "/resume.pdf",                   group: "Links",    action: () => {
+    { id: "stats",      label: "Stats",                   group: "Navigate", action: () => { router.push("/stats");    close(); } },
+    { id: "github",     label: "Open GitHub",             hint: "github.com/whackemowen",                      group: "Links",    action: () => { window.open("https://github.com/whackemowen", "_blank"); close(); } },
+    { id: "linkedin",   label: "Open LinkedIn",           hint: "linkedin.com/in/owen-zheng-731685389",        group: "Links",    action: () => { window.open("https://www.linkedin.com/in/owen-zheng-731685389/", "_blank"); close(); } },
+    { id: "resume",     label: "Download Resume",         hint: "/resume.pdf",                                 group: "Links",    action: () => {
       const a = document.createElement("a");
       a.href = "/resume.pdf";
-      a.download = "Michael_Keller_Resume.pdf";
+      a.download = "Owen_Zheng_Resume.pdf";
       a.click();
       close();
     }},
-    { id: "email",      label: "Copy Email",              hint: "thecoolkidmichaelkeller@gmail.com", group: "Actions", action: () => { navigator.clipboard.writeText("thecoolkidmichaelkeller@gmail.com"); close(); } },
+    { id: "email",      label: "Copy Email",              hint: "owen.zhengzhiyun@gmail.com", group: "Actions", action: () => { navigator.clipboard.writeText("owen.zhengzhiyun@gmail.com"); close(); } },
     { id: "theme",      label: "Toggle Theme",            hint: "light / dark",                  group: "Actions",  action: () => {
       const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
       applyTheme(next as "light" | "dark");
@@ -76,7 +77,20 @@ export default function CommandPalette() {
         e.preventDefault();
         setOpen((prev) => !prev);
       }
-      if (e.key === "Escape") close();
+      if (e.shiftKey && e.key === "F") {
+        e.preventDefault();
+        const next = document.documentElement.getAttribute("data-focus") !== "true";
+        setFocusMode(next);
+        document.documentElement.setAttribute("data-focus", next ? "true" : "false");
+      }
+      if (e.key === "Escape") {
+        if (document.documentElement.getAttribute("data-focus") === "true") {
+          setFocusMode(false);
+          document.documentElement.setAttribute("data-focus", "false");
+        } else {
+          close();
+        }
+      }
     };
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);

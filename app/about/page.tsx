@@ -11,11 +11,21 @@ const currently = [
 ];
 
 const experience = [
-  { role: "Programmer / Drive Team", org: "Lightning Bots — FTC Robotics", period: "2022 — present" },
+  {
+    role: "Programmer / Builder / Driver",
+    org: "Lightning Bots — FTC Team 16205",
+    period: "2022 — present",
+    details: [
+      "2nd overall & 3rd in autonomous in all of Canada",
+      "BC provincials champions 3 years running",
+      "Autonomous built on PedroPathing + odometry for accurate PID path following",
+      "Auto aiming for precise targeting during autonomous",
+    ],
+  },
 ];
 
 const skillGroups = [
-  { label: "Languages", items: ["Python", "TypeScript"] },
+  { label: "Languages", items: ["Python", "TypeScript", "C++", "Java"] },
   { label: "Libraries", items: ["OpenCV", "MediaPipe", "Next.js", "React"] },
   { label: "Tools", items: ["Git", "PyAutoGUI", "NumPy"] },
 ];
@@ -23,7 +33,7 @@ const skillGroups = [
 const contact = [
   { label: "Email", href: "mailto:owen.zhengzhiyun@gmail.com", display: "owen.zhengzhiyun@gmail.com" },
   { label: "GitHub", href: "https://github.com/whackemowen", display: "github.com/whackemowen" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/owen-zheng-731685389/", display: "linkedin.com/in/owen-zheng-731685389" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/owen-zheng-731685389/", display: "Owen Zheng" },
 ];
 
 export default function About() {
@@ -48,8 +58,8 @@ export default function About() {
             <p className="fade-up fade-up-3 text-lg leading-relaxed pt-2" style={{ color: "var(--muted)" }}>
               Hey — I&apos;m Owen. I&apos;m a student based in Coquitlam, BC who builds
               things for fun — computer vision systems, web apps, whatever sounds
-              interesting. I&apos;ve spent four years on the Lightning Bots FTC robotics
-              team, competing and winning provincials in BC three years running.
+              interesting. I&apos;ve spent four years competing in FTC robotics with
+              the Lightning Bots.
             </p>
             <p className="fade-up fade-up-4 text-lg leading-relaxed" style={{ color: "var(--muted)" }}>
               Outside of robotics I like pushing into unexpected territory with side
@@ -90,9 +100,19 @@ export default function About() {
                       className="w-0.5 rounded-full mt-1 shrink-0"
                       style={{ background: "var(--accent-light)", alignSelf: "stretch", minHeight: "2rem" }}
                     />
-                    <div className="space-y-0.5">
+                    <div className="space-y-1.5">
                       <div className="font-semibold text-sm" style={{ color: "var(--fg)" }}>{e.role}</div>
                       <div className="text-xs" style={{ color: "var(--muted)" }}>{e.org} · {e.period}</div>
+                      {e.details && (
+                        <ul className="space-y-1 pt-1">
+                          {e.details.map((d) => (
+                            <li key={d} className="flex gap-2 text-xs" style={{ color: "var(--muted)" }}>
+                              <span style={{ color: "var(--accent)" }}>·</span>
+                              {d}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </li>
                 ))}
@@ -141,6 +161,8 @@ export default function About() {
                 <a
                   key={c.label}
                   href={c.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="group p-5 rounded-xl border flex flex-col gap-1.5 transition-all hover:border-green-300 hover:shadow-md hover:-translate-y-1"
                   style={{ borderColor: "var(--border)", background: "var(--bg)" }}
                 >
