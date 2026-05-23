@@ -21,8 +21,9 @@ const skillGroups = [
 ];
 
 const contact = [
-  { label: "Email", href: "mailto:thecoolkidmichaelkeller@gmail.com", display: "thecoolkidmichaelkeller@gmail.com" },
+  { label: "Email", href: "mailto:owen.zhengzhiyun@gmail.com", display: "owen.zhengzhiyun@gmail.com" },
   { label: "GitHub", href: "https://github.com/whackemowen", display: "github.com/whackemowen" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/owen-zheng-731685389/", display: "linkedin.com/in/owen-zheng-731685389" },
 ];
 
 export default function About() {

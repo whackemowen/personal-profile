@@ -2,7 +2,7 @@ import Link from "next/link";
 import CopyEmail from "./components/copy-email";
 import GitHubStats from "./components/github-stats";
 
-const EMAIL = "thecoolkidmichaelkeller@gmail.com";
+const EMAIL = "owen.zhengzhiyun@gmail.com";
 
 const highlights = [
   { label: "Currently", value: "Student & side-project builder" },
