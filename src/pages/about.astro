@@ -1,0 +1,174 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FadeIn from "../components/FadeIn";
+
+const currently = [
+  "Building side projects",
+  "FTC Robotics — Lightning Bots",
+];
+
+const experience = [
+  {
+    role: "Programmer / Builder / Driver",
+    org: "Lightning Bots — FTC Team 16205",
+    period: "2022 — present",
+    details: [
+      "2nd overall & 3rd in autonomous in all of Canada",
+      "BC provincials champions 3 years running",
+      "Autonomous built on PedroPathing + odometry for accurate PID path following",
+      "Auto aiming for precise targeting during autonomous",
+    ],
+  },
+];
+
+const skillGroups = [
+  { label: "Languages", items: ["Python", "TypeScript", "C++", "Java"] },
+  { label: "Libraries", items: ["OpenCV", "MediaPipe", "React", "Astro"] },
+  { label: "Tools", items: ["Git", "PyAutoGUI", "NumPy"] },
+];
+
+const contact = [
+  { label: "Email", href: "mailto:owen.zhengzhiyun@gmail.com", display: "owen.zhengzhiyun@gmail.com" },
+  { label: "GitHub", href: "https://github.com/whackemowen", display: "github.com/whackemowen" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/owen-zheng-731685389/", display: "Owen Zheng" },
+];
+---
+
+<Layout title="About — Owen Zheng">
+  <div class="space-y-20">
+
+    <!-- Page header with green tint -->
+    <div
+      class="border-b"
+      style="border-color: var(--border); background: var(--header-gradient)"
+    >
+      <div class="max-w-5xl mx-auto px-6 py-16">
+        <section class="max-w-2xl space-y-4">
+          <h1 class="fade-up fade-up-1 text-3xl font-bold tracking-tight" style="color: var(--fg)">
+            About
+          </h1>
+          <div class="fade-up fade-up-2 w-10 h-1 rounded-full" style="background: var(--accent)" />
+          <p class="fade-up fade-up-3 text-lg leading-relaxed pt-2" style="color: var(--muted)">
+            Hey — I'm Owen. I'm a student based in Coquitlam, BC who builds
+            things for fun — computer vision systems, web apps, whatever sounds
+            interesting. I've spent four years competing in FTC robotics with
+            the Lightning Bots.
+          </p>
+          <p class="fade-up fade-up-4 text-lg leading-relaxed" style="color: var(--muted)">
+            Outside of robotics I like pushing into unexpected territory with side
+            projects — teaching computers to understand gestures, automating things
+            that probably shouldn't be automated. I'm open to internship opportunities.
+          </p>
+        </section>
+      </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 space-y-20">
+
+      <!-- Currently + Experience -->
+      <FadeIn client:visible>
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-widest mb-5" style="color: var(--accent)">
+              Currently
+            </p>
+            <ul class="space-y-3">
+              {currently.map((item) => (
+                <li class="flex gap-3 text-sm">
+                  <span style="color: var(--accent)">→</span>
+                  <span style="color: var(--fg)">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p class="text-[11px] font-semibold uppercase tracking-widest mb-5" style="color: var(--accent)">
+              Experience
+            </p>
+            <ul class="space-y-5">
+              {experience.map((e) => (
+                <li class="flex gap-4">
+                  <div
+                    class="w-0.5 rounded-full mt-1 shrink-0"
+                    style="background: var(--accent-light); align-self: stretch; min-height: 2rem"
+                  />
+                  <div class="space-y-1.5">
+                    <div class="font-semibold text-sm" style="color: var(--fg)">{e.role}</div>
+                    <div class="text-xs" style="color: var(--muted)">{e.org} · {e.period}</div>
+                    {e.details && (
+                      <ul class="space-y-1 pt-1">
+                        {e.details.map((d) => (
+                          <li class="flex gap-2 text-xs" style="color: var(--muted)">
+                            <span style="color: var(--accent)">·</span>
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </FadeIn>
+
+      <!-- Skills -->
+      <FadeIn delay={50} client:visible>
+        <section>
+          <p class="text-[11px] font-semibold uppercase tracking-widest mb-6" style="color: var(--accent)">
+            Skills
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {skillGroups.map((group) => (
+              <div>
+                <p class="text-sm font-semibold mb-3" style="color: var(--fg)">
+                  {group.label}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      class="text-xs px-2.5 py-1 rounded-md font-medium transition-transform hover:scale-105 cursor-default"
+                      style="background: var(--accent-light); color: var(--accent-text)"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+      <!-- Contact -->
+      <FadeIn delay={100} client:visible>
+        <section class="border-t pt-12" style="border-color: var(--border)">
+          <p class="text-[11px] font-semibold uppercase tracking-widest mb-6" style="color: var(--accent)">
+            Get in touch
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            {contact.map((c) => (
+              <a
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group p-5 rounded-xl border flex flex-col gap-1.5 transition-all hover:border-green-300 hover:shadow-md hover:-translate-y-1"
+                style="border-color: var(--border); background: var(--bg)"
+              >
+                <span class="text-[11px] font-semibold uppercase tracking-widest" style="color: var(--accent)">
+                  {c.label}
+                </span>
+                <span class="text-sm font-medium group-hover:underline" style="color: var(--fg)">
+                  {c.display}
+                </span>
+              </a>
+            ))}
+          </div>
+        </section>
+      </FadeIn>
+
+    </div>
+  </div>
+</Layout>

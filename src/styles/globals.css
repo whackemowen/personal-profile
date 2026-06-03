@@ -1,6 +1,11 @@
 @import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
 
 :root {
+  --font-sans: "Geist Variable", system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", monospace;
+
   --bg: #ffffff;
   --bg-subtle: #edfff5;
   --bg-green: #f0fdf4;
@@ -17,7 +22,6 @@
   --header-gradient: radial-gradient(ellipse 75% 100% at 105% 50%, #bbf7d0 0%, #dcfce7 30%, #ffffff 65%);
 }
 
-/* Dark mode — must come after :root so it wins on equal specificity */
 [data-theme="dark"] {
   --bg: #000000;
   --bg-subtle: #0d0d0d;
@@ -53,7 +57,6 @@ a {
   text-decoration: none;
 }
 
-/* Project cards */
 .project-card {
   border-left: 3px solid transparent;
   transition: border-left-color 0.2s ease, box-shadow 0.25s ease, transform 0.25s ease;
@@ -65,7 +68,6 @@ a {
   transform: translateY(-4px);
 }
 
-/* Buttons */
 .btn-primary {
   transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
 }
@@ -89,7 +91,6 @@ a {
   transform: translateY(0);
 }
 
-/* Focus mode */
 header {
   transition: transform 0.35s ease, opacity 0.35s ease;
 }
@@ -106,7 +107,6 @@ footer {
   pointer-events: none;
 }
 
-/* Nav background — explicit per-theme instead of color-mix */
 .nav-bg {
   background: rgba(255, 255, 255, 0.88);
 }
@@ -114,12 +114,10 @@ footer {
   background: rgba(0, 0, 0, 0.9);
 }
 
-/* Icon button hover (theme toggle, etc.) */
 .icon-btn:hover {
   background: var(--bg-subtle);
 }
 
-/* Project status badges */
 .badge-live {
   color: #166534;
   background: #dcfce7;
@@ -145,7 +143,6 @@ footer {
   background: #1a1a1a;
 }
 
-/* Nav slide-in underline */
 .nav-link {
   position: relative;
   padding-bottom: 2px;
@@ -165,7 +162,6 @@ footer {
   width: 100%;
 }
 
-/* Hero stagger fade-up */
 @keyframes fadeUp {
   from {
     opacity: 0;

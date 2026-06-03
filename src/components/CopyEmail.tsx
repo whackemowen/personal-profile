@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 export default function CopyEmail({ email }: { email: string }) {
@@ -25,7 +23,6 @@ export default function CopyEmail({ email }: { email: string }) {
         {copied ? "copied!" : `${email} →`}
       </button>
 
-      {/* Toast */}
       <div
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 px-4 py-3 rounded-xl shadow-lg border text-sm font-medium transition-all duration-300"
         style={{

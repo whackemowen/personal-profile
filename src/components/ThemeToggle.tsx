@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { applyTheme, getStoredTheme, type Theme } from "../lib/theme";
 
